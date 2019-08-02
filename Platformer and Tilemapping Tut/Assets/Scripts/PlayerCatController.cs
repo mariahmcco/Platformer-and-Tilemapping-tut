@@ -11,6 +11,8 @@ public class PlayerCatController : MonoBehaviour
 
     public Text scoreText;
     public Text winText;
+
+    
     // Start is called before the first frame update
     private int score;
     public Text lifeText;
@@ -23,11 +25,23 @@ public class PlayerCatController : MonoBehaviour
 
     public AudioClip MusicClip;
     public AudioClip MusicClip2;
+
+    public AudioClip jump;
+
+    public AudioClip coin;
+
+    public AudioClip jewel;
+    
     public AudioSource MusicSource;
 
     Animator anim;
 
     private bool facingRight;
+
+   public Text timerText;
+   public float timeLeft = 60.0f;
+   private bool timeOn = true;
+
 
     void Start()
     {
@@ -39,8 +53,6 @@ public class PlayerCatController : MonoBehaviour
         setLifeText ();
         loseText.text = "";
         myPlayer = GameObject.FindGameObjectWithTag("Player");
-
-        MusicSource.clip = MusicClip;
 
         anim = GetComponent<Animator> ();
 
@@ -82,6 +94,17 @@ public class PlayerCatController : MonoBehaviour
             anim.SetInteger("State", 0);
         }
 
+    
+        if (timeOn)
+        {
+        timeLeft -= Time.deltaTime;
+        timerText.text = (timeLeft).ToString("0");
+        if (timeLeft < 0)
+        {
+            loseText.text = "Time Ran Out";
+            Destroy(myPlayer);
+        }
+        }
         
     }
     private void Flip(float moveHorizontal)
@@ -103,6 +126,8 @@ public class PlayerCatController : MonoBehaviour
             other.gameObject.SetActive (false);
             score = score + 1;
             setScoreText ();
+
+            MusicSource.PlayOneShot(coin);
         }
 
         if (other.gameObject.CompareTag("Enemy"))
@@ -111,6 +136,28 @@ public class PlayerCatController : MonoBehaviour
             life = life - 1;
             setLifeText ();
         }
+
+        if (other.gameObject.CompareTag("Bull"))
+        {
+            other.gameObject.SetActive (false);
+            life = life - 1;
+            setLifeText ();
+        }
+
+        if (other.gameObject.CompareTag("Power up"))
+        {
+            other.gameObject.SetActive (false);
+            MusicSource.PlayOneShot(jewel);
+            speed = speed * 2f;
+            StartCoroutine("waitTime");
+        }
+        
+    }
+
+    IEnumerator waitTime()
+    {
+	yield return new WaitForSeconds (3);
+	speed = speed / 2f;
     }
 
     void setScoreText ()
@@ -126,6 +173,8 @@ public class PlayerCatController : MonoBehaviour
             winText.text = "You Win!";
             MusicSource.clip = MusicClip2;
             MusicSource.Play();
+
+            timeOn = false;
         }
     }
 
@@ -136,6 +185,8 @@ public class PlayerCatController : MonoBehaviour
         {
             loseText.text = "You Lose.";
             Destroy(myPlayer);
+
+            timeOn = false;
         }
     }
 
@@ -150,6 +201,9 @@ public class PlayerCatController : MonoBehaviour
                 rb2d.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
 
                 anim.SetInteger("State", 2);
+
+                MusicSource.PlayOneShot(jump);
+
             }
 
                      //Idle -> running animation 

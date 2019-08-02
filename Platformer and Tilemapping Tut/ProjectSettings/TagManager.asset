@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Pick up
   - Enemy
+  - Power up
+  - Bull
   layers:
   - Default
   - TransparentFX
@@ -47,14 +49,32 @@ TagManager:
   - name: Sky
     uniqueID: 2638085471
     locked: 0
+  - name: sky2
+    uniqueID: 2567966679
+    locked: 0
+  - name: water
+    uniqueID: 3245568471
+    locked: 0
+  - name: clouds
+    uniqueID: 274001441
+    locked: 0
+  - name: bg gras
+    uniqueID: 1935848211
+    locked: 0
   - name: Ground
     uniqueID: 1474830057
+    locked: 0
+  - name: grass
+    uniqueID: 4082782567
     locked: 0
   - name: Platforms
     uniqueID: 2729926079
     locked: 0
   - name: Pick ups
     uniqueID: 1567843721
+    locked: 0
+  - name: power up
+    uniqueID: 51033425
     locked: 0
   - name: Enemy
     uniqueID: 3272613915

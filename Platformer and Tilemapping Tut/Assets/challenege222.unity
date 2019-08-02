@@ -5888,7 +5888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpForce: 2.5
+  jumpForce: 4
   scoreText: {fileID: 1821752261}
   winText: {fileID: 790507631}
   lifeText: {fileID: 1453595866}
@@ -6017,7 +6017,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.27, y: 3.9}
+  m_Size: {x: 2.54, y: 3.9}
   m_EdgeRadius: 0
 --- !u!50 &1500645261
 Rigidbody2D:
@@ -6175,6 +6175,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363692562162879946, guid: e244a99839e799144911b45814c0f4f7,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e244a99839e799144911b45814c0f4f7, type: 3}
@@ -7955,6 +7960,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 34, y: 0, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: 39, y: 0, z: 0}
     second:
       m_TileIndex: 0
@@ -8146,19 +8160,19 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 33
+  - m_RefCount: 34
     m_Data: {fileID: 11400000, guid: 3737425a3a60e5245b68ed55c3c35d99, type: 2}
   - m_RefCount: 4
     m_Data: {fileID: 11400000, guid: 1d3bc916aebee2b47a6655e152e21821, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 33
+  - m_RefCount: 34
     m_Data: {fileID: 3017951261782810659, guid: 6feceb802a2648a4e8dc9c0bfbb22613,
       type: 3}
   - m_RefCount: 4
     m_Data: {fileID: -8763542637057820100, guid: 6feceb802a2648a4e8dc9c0bfbb22613,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 37
+  - m_RefCount: 38
     m_Data:
       e00: 1
       e01: 0
@@ -8177,7 +8191,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 37
+  - m_RefCount: 38
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
